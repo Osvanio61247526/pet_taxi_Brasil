@@ -1,0 +1,408 @@
+/* ==========================================================================
+   FONTES E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  /* Cores Principais */
+  --primary: rgb(7, 160, 207);
+  --primary-hover: rgb(65, 125, 214);
+  --secondary: rgb(5, 28, 128);
+  --secondary-hover: rgb(6, 51, 175);
+  --whatsapp-color: #25D366;
+  --whatsapp-hover: #20ba5a;
+  
+  /* Tons Escuros e Textos */
+  --dark: #2c3e50;         
+  --text-dark: #1a252f;
+  --text-muted: #555555;
+  
+  /* Tons Claros e Elementos */
+  --white-bg: #f8fbfe;        
+  --pure-white: #ffffff;
+  --border-light: #e2eef8;       
+  --border-dashed: rgb(0, 188, 245);
+  
+  /* Cores de Destaque / Botões */
+  --btn-submit: rgb(7, 64, 139);
+  --btn-submit-hover: rgb(67, 147, 250);
+  --title-accent: rgb(0, 51, 128);
+  --title-secondary: rgb(16, 34, 196);
+  --line-accent: rgb(3, 71, 150);
+  
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 90px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: var(--pure-white);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   CABEÇALHO & NAVEGAÇÃO
+   ========================================================================== */
+.site-header {
+  background-color: var(--primary);
+  width: 100%;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.area-navegacao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  max-height: 65px;
+  width: auto;
+  object-fit: contain;
+}
+
+.menu-header {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  align-items: center;
+}
+
+.icones {
+  text-decoration: none;
+  color: var(--pure-white);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icones:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Tratamento especial para o botão Entrar */
+.menu-header li:last-child .icones {
+  background-color: var(--secondary);
+  border: 1px solid transparent;
+}
+
+.menu-header li:last-child .icones:hover {
+  background-color: var(--secondary-hover);
+}
+
+/* ==========================================================================
+   CONTEÚDO PRINCIPAL & ESTRUTURA SEÇÕES
+   ========================================================================== */
+main {
+  margin-top: var(--header-height);
+  width: 100%;
+}
+
+section {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* 1. SEÇÃO HERO (Apresentação Principal) */
+.secao-hero {
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 40px;
+}
+
+.secao-hero h1 {
+  color: var(--title-accent);
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.secao-hero .subtitulo {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+
+.secao-hero .descricao {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 2. SEÇÃO DE BENEFÍCIOS (Grid de Diferenciais) */
+.secao-beneficios {
+  background-color: var(--white-bg);
+  max-width: 100%; /* Ocupa a largura total da tela com background */
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.grid-beneficios {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.beneficio-card {
+  background: var(--pure-white);
+  padding: 35px 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 86, 179, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-light);
+}
+
+.beneficio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 86, 179, 0.08);
+}
+
+.beneficio-card i {
+  font-size: 40px;
+  color: var(--primary);
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.beneficio-card h3 {
+  font-size: 20px;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.beneficio-card p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* 3. SEÇÃO BANNER & CHAMADA PARA AÇÃO (CTA) */
+.secao-cta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.banner-wrapper {
+  width: 100%;
+}
+
+#banner_image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.05);
+  object-fit: cover;
+}
+
+.cta-acoes {
+  padding: 40px;
+  border: 2px dashed var(--border-dashed);
+  border-radius: 16px;
+  background-color: var(--white-bg);
+}
+
+.cta-acoes h2 {
+  font-size: 26px;
+  color: var(--text-dark);
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+.botoes-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Botões do CTA */
+.btn-principal, .btn-whatsapp {
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-principal {
+  background-color: var(--btn-submit);
+  color: var(--pure-white);
+}
+
+.btn-principal:hover {
+  background-color: var(--btn-submit-hover);
+  transform: translateY(-1px);
+}
+
+.btn-whatsapp {
+  background-color: var(--whatsapp-color);
+  color: var(--pure-white);
+}
+
+.btn-whatsapp:hover {
+  background-color: var(--whatsapp-hover);
+  transform: translateY(-1px);
+}
+
+/* 4. SEÇÃO DE DEPOIMENTOS (Prova Social) */
+.secao-depoimentos {
+  text-align: center;
+}
+
+.secao-depoimentos h2 {
+  font-size: 28px;
+  color: var(--text-dark);
+  margin-bottom: 40px;
+}
+
+.depoimento-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.depoimento-card {
+  background-color: var(--white-bg);
+  padding: 40px 30px;
+  border-radius: 16px;
+  border-left: 5px solid var(--primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.depoimento-card p {
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--dark);
+  margin-bottom: 20px;
+}
+
+.depoimento-card cite {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--title-accent);
+  font-size: 15px;
+}
+
+/* 5. SEÇÃO LOCALIZAÇÃO */
+.secao-localizacao h2 {
+  font-size: 28px;
+  color: var(--text-dark);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--border-light);
+}
+
+.secao-localizacao p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--dark);
+}
+
+/* ==========================================================================
+   RODAPÉ DO SITE
+   ========================================================================== */
+.site-footer {
+  background-color: var(--dark);
+  color: #a0aec0;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 14px;
+  border-top: 1px solid #1a252f;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE-FRIENDLY)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .grid-beneficios {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .secao-cta {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .secao-hero h1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .area-navegacao {
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .site-header {
+    height: auto;
+    position: relative; /* Evita sobreposição confusa em telas muito pequenas */
+  }
+  
+  main {
+    margin-top: 0;
+  }
+  
+  .menu-header {
+    gap: 5px;
+  }
+  
+  .icones {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+  
+  section {
+    padding: 40px 20px;
+  }
+}
